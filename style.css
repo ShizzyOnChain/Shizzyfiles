@@ -1,0 +1,39 @@
+
+body {
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #1e1e1e;
+  text-align: center;
+  padding: 50px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.toggle-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.wallets {
+  margin-top: 30px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  background-color: #6f42c1;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5936a0;
+}
