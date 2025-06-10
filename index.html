@@ -38,6 +38,27 @@
         alert("MetaMask is not installed. Please install it first.");
       }
     });
+
+    // Xverse Connect (window.btc)
+    document.getElementById("connectXverse").addEventListener("click", async () => {
+      try {
+        if (!window.btc || !window.btc.request) {
+          alert("Xverse Wallet not detected. Please install the Xverse browser extension.");
+          return;
+        }
+        const response = await window.btc.request("getAddresses");
+        if (response && response.result && response.result.addresses.length > 0) {
+          const address = response.result.addresses[0].address;
+          console.log("Connected Xverse wallet:", address);
+          alert("Connected Xverse: " + address);
+        } else {
+          alert("No Bitcoin address returned from Xverse.");
+        }
+      } catch (err) {
+        console.error("Xverse connection failed", err);
+        alert("Xverse connection error.");
+      }
+    });
   </script>
 </body>
 </html>
