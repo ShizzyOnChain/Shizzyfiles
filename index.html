@@ -9,17 +9,35 @@
 <body>
   <div class="toggle-container">
     <button id="modeToggle">🌞 / 🌙</button>
-  </div> 
+  </div>
 
   <h1>MagicRazz 🪄</h1>
-  <p>Razzes - RWA Cards - Ordinals/NFTs - BTC - $DOG - MERLIN</p>
+  <p>Razzes – RWA Cards – Ordinals/NFTs – BTC – $DOG – MERLIN</p>
 
   <div class="wallets">
-    <button>Connect MetaMask</button>
-    <button>Connect Xverse</button>
-    <button>Connect Unisat</button>
+    <button id="connectMetamask">Connect MetaMask</button>
+    <button id="connectXverse">Connect Xverse</button>
+    <button id="connectUnisat">Connect Unisat</button>
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // MetaMask Connect
+    document.getElementById("connectMetamask").addEventListener("click", async () => {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const walletAddress = accounts[0];
+          console.log("Connected MetaMask wallet:", walletAddress);
+          alert("Connected MetaMask: " + walletAddress);
+        } catch (err) {
+          console.error("User rejected connection", err);
+          alert("Connection rejected.");
+        }
+      } else {
+        alert("MetaMask is not installed. Please install it first.");
+      }
+    });
+  </script>
 </body>
 </html>
